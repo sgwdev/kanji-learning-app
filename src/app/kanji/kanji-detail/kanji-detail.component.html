@@ -31,8 +31,8 @@
     </div>
     <div class="row">
         <div class="col-md-3 mt-3">
-            <a class="btn btn-primary">Edit</a>
-            <a class="btn btn-secondary">Back</a>
+            <a class="btn btn-primary" [routerLink]="['/kanji/edit', kanji.id]">Edit</a>
+            <a class="btn btn-secondary" [routerLink]="['/kanji']">Back</a>
         </div>
     </div>
 </div>

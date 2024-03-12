@@ -7,6 +7,8 @@ import { KanjiDetailComponent } from './kanji/kanji-detail/kanji-detail.componen
 import { NewKanjiComponent } from './kanji/new-kanji/new-kanji.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { KanjiEditComponent } from './kanji/kanji-edit/kanji-edit.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { KanjiEditComponent } from './kanji/kanji-edit/kanji-edit.component';
     KanjiListComponent,
     KanjiDetailComponent,
     NewKanjiComponent,
-    KanjiEditComponent
+    KanjiEditComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

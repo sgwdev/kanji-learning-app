@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Constants } from 'src/app/shared/Constants';
 import { Kanji } from 'src/app/shared/kanji.model';
 import { ReadingType } from 'src/app/shared/reading-type.model';
@@ -17,8 +18,8 @@ export class KanjiEditComponent {
   readingTypes: ReadingType[] = Constants.readingTypes;
   kanji: Kanji;
 
-  constructor(private kanjiService: KanjiService){
-    const id = 1;
+  constructor(private route: ActivatedRoute, private router: Router, private kanjiService: KanjiService){
+    const id = this.route.snapshot.params['id'];
     this.kanji = kanjiService.getKanji(id);
   }
 
@@ -63,5 +64,6 @@ export class KanjiEditComponent {
 
     this.kanji.readings = readings;
     this.kanjiService.updateKanji(this.kanji);
+    this.router.navigate(['/kanji', this.kanji.id]);
   }
 }

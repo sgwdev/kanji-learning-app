@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Constants } from 'src/app/shared/Constants';
 import { Kanji } from 'src/app/shared/kanji.model';
 import { ReadingType } from 'src/app/shared/reading-type.model';
@@ -17,7 +18,7 @@ export class NewKanjiComponent implements OnInit {
   readingTypes = Constants.readingTypes;
   existingKanji = this.kanjiService.getKanjiList().map(k => k.character);
 
-  constructor(private kanjiService: KanjiService){ }
+  constructor(private router: Router, private kanjiService: KanjiService){ }
 
   ngOnInit(): void {
     this.kanjiService.changed.subscribe(
@@ -66,5 +67,6 @@ export class NewKanjiComponent implements OnInit {
     );
     
     this.kanjiService.addKanji(kanji);
+    this.router.navigate(['/kanji', kanji.id]);
   }
 }

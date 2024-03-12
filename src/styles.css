@@ -11,4 +11,11 @@
 
 .large-furigana {
     font-size: 1rem;
+
+}
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
 }

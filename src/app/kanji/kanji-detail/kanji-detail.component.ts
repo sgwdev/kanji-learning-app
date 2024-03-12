@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Kanji } from 'src/app/shared/kanji.model';
 import { KanjiService } from '../kanji.service';
 
@@ -10,8 +11,9 @@ import { KanjiService } from '../kanji.service';
 export class KanjiDetailComponent {
   kanji: Kanji;
 
-  constructor(private kanjiService: KanjiService){
-    const id = 1;
-    this.kanji = kanjiService.getKanji(id);
+  constructor(private route: ActivatedRoute, private kanjiService: KanjiService){
+    const id = +this.route.snapshot.params['id'];
+    
+    this.kanji = this.kanjiService.getKanji(id);
   }
 }
